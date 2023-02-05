@@ -1,6 +1,6 @@
 # Stockfish Cluster
-<h1>How to create a remote chess engine</h1>
-    <h2>with Stockfish Cluster version</h2>
+<h2>How to create a remote chess engine</h2>
+    <h3>with Stockfish Cluster version</h3>
 <img src="./1666199543667.jpeg" alt="Getting started" />
  In this article, we will discuss how to create an MPI Cluster on several platforms including a SBC cluster (LePotato or Raspberry Pi or similar)
 <h2>Problem statement and goal</h2>
