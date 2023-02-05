@@ -18,3 +18,7 @@ The journey started end of 2021. I wanted a remote server connected to ChessBase
 <li>Raspberry Pi: Armbian or Ubuntu</li>
 <li>LePotato: Armbian</li>
 64 bit recommended to ensure highest performance. A mix of different SBC is not a problem. However, MPI tuning and/or network switch tuning might be necessary.
+
+<h2>Message Passing Interface</h2>
+To load balance an engine cluster version I use OpenMPI. OpenMPI is an open-source implementation of the Message Passing Interface concept. An MPI is a software that connects processes running across multiple computers and allows them to communicate as they run. This is what allows a single script to run a job spread across multiple cluster nodes.
+And yes, there is a Stockfish Chess Enginge branch developed with MPI cluster implementation of Stockfish, allowing Stockfish to run on clusters of compute nodes connected with a high-speed network.
