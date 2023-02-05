@@ -7,10 +7,14 @@ The journey started end of 2021. I wanted a remote server connected to ChessBase
 
 <h2>Prerequesites</h2>
 <ul>
- <li>Raspberry Pi 3 Model B or higher. As an alternative the Libre Computer Board AML-S905X-CC (Le Potato) 2GB </li>
+ <li>Raspberry Pi 3 Model B or higher. As an alternative Libre Computer Board AML-S905X-CC (Le Potato) 2GB </li>
  <li>Reliable MicroSD Card (Samsung/SanDisk recommended)</li>
  <li>MicroUSB Power Supply</li>
  <li>Network switch such as NETGEAR 8-Port Gigabit Ethernet Plus Switch</li>
  <li>Internet Connection</li>
 </ul>
-
+<h2>Operating System</h2>
+<li>Azure VM: Ubuntu OS</li>
+<li>Raspberry Pi: Armbian or Ubuntu</li>
+<li>LePotato: Armbian</li>
+64 bit recommended to ensure highest performance
