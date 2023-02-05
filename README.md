@@ -1,6 +1,8 @@
 # Stockfish Cluster
 <h1>How to create a remote chess engine</h1>
     <h2>with Stockfish Cluster version</h2>
+!(./1666199543667.jpeg)
+
  In this article, we will discuss how to create an MPI Cluster on several platforms including a SBC cluster (LePotato or Raspberry Pi or similar)
 <h2>Problem statement and goal</h2>
 The journey started end of 2021. I wanted a remote server connected to ChessBase Software when analyzing chess games, tactical analysis etc. You might think why not just run stockfish or other engines on your laptop. Well true, but the heavy CPU usage of such engine on a laptop -let’s assume 8 cores- drain the battery fast if not connected to power. Also, a remote chess engine running on a cluster has much better performance.
