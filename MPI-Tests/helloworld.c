@@ -1,3 +1,18 @@
+// Author: Wes Kendall
+// Copyright 2011 www.mpitutorial.com
+// This code is provided freely with the tutorials on mpitutorial.com. Feel
+// free to modify it for your own use. Any distribution of the code must
+// either provide a link to www.mpitutorial.com or keep this header intact.
+//
+// An intro MPI hello world program that uses MPI_Init, MPI_Comm_size,
+// MPI_Comm_rank, MPI_Finalize, and MPI_Get_processor_name.
+// compile mpicc -o mpi_hello_world mpi_hello_world.c
+// start MPI mpiexec helloworld creates output
+// Hello world from processor ClusterMaster, rank 2 out of 4 processors
+// Hello world from processor ClusterMaster, rank 3 out of 4 processors
+// Hello world from processor ClusterMaster, rank 1 out of 4 processors
+// Hello world from processor ClusterMaster, rank 0 out of 4 processors
+// adding hostfile creates Hello World for all ClusterNodes and ClusterMaster
 #include <mpi.h>
 #include <stdio.h>
 
