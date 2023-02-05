@@ -17,4 +17,4 @@ The journey started end of 2021. I wanted a remote server connected to ChessBase
 <li>Azure VM: Ubuntu OS</li>
 <li>Raspberry Pi: Armbian or Ubuntu</li>
 <li>LePotato: Armbian</li>
-64 bit recommended to ensure highest performance
+64 bit recommended to ensure highest performance. A mix of different SBC is not a problem. However, MPI tuning and/or network switch tuning might be necessary.
