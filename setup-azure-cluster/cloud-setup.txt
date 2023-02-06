@@ -1,0 +1,10 @@
+# cloud-setup.txt
+#cloud configuration
+package_upgrade: true
+packages:
+  - clustershell
+  - openmpi-bin
+  - libopenmpi-dev
+  - python3-pip
+  - python3-mpi4py
+  
