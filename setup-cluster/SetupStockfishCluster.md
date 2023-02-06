@@ -104,3 +104,36 @@ $ parallel-ssh -i -h .pssh_hosts sudo apt-get update
 $ parallel-ssh -i -h .pssh_hosts sudo apt-get upgrade -y
 ```
 You can also run scripts using parallel-ssh.
+
+Another option which you can also use to deploy on Azure compute cluster is `clush`, a very easy to handle managing tool.
+``` console
+$ sudo apt install clustershell
+```
+
+Example usage:
+``` console
+$ clush -w node[1-3] -b
+Enter 'quit' to leave this interactive mode
+Working with nodes: node[1-3]
+clush> uname
+clusternode1: Linux
+clusternode3: Linux
+clusternode2: Linux
+
+$ clush -v -w clusternode[1-3] --copy /home/mpi/helloworld.py
+`/home/mpi/helloworld.py' -> clusternode[1-3]:`/home/mpi/'
+clush> quit
+```
+
+
+<h2>Python3-mpi4py” package</h2>
+Not mandatory, but it might be a good idea to install MPI4PY. Mpi4py is a Python package that implements the Message Passing Interface (MPI) standard. It is built on top of the MPI specification and provides an API based on the standard MPI-2 C++ bindings. This library may be installed using both the pip manager and the apt packager. Python2 and Python3 are supported via the Mpi4py package. It supports convenient communication of any pickable python object, fast communication, parallel input and output, dynamic process management, etc.
+
+```console
+$ sudo apt install python3-pip
+```
+And then using pip to install mpi4py
+```console
+$ sudo apt install python3-mpi4py
+```
+We might want to use some python scripts to test things out such as MPI configuration.

@@ -19,3 +19,4 @@ packages:
 
 This file will install the necessary packages (clustershell, openmpi-bin, and libopenmpi-dev) to run MPI on your cluster.
 Before you start ensure you have enough quota on Azure.
+
