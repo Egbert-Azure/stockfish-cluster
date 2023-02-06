@@ -25,3 +25,11 @@ Then we will connect to ChessBase and other UCI software. ChessBase is a persona
 <h2>Message Passing Interface</h2>
 To load balance an engine cluster version I use OpenMPI. OpenMPI is an open-source implementation of the Message Passing Interface concept. An MPI is a software that connects processes running across multiple computers and allows them to communicate as they run. This is what allows a single script to run a job spread across multiple cluster nodes.
 And yes, there is a Stockfish Chess Enginge branch developed with MPI cluster implementation of Stockfish, allowing Stockfish to run on clusters of compute nodes connected with a high-speed network.
+
+For details docs are linked
+# Setup Stockfish Cluster
+see documentation [here](setup-cluster/setupstockfishcluster.md)
+
+# Setting up a Basic MPI Cluster in Azure
+ee documentation [here](setup-azure-cluster/setupazurebasicmpicluster.md)
+
