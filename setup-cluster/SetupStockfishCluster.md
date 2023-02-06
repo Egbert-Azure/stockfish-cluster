@@ -19,7 +19,7 @@ or
 $ sudo nano /etc/hostname and reboot
 ```
 Additionally, I had to change the file /etc/cloud/cloud.cfg in the Ubuntu OS. There is a setting preserve_hostname: false and I had to change that from false to true.
-Next step is to add a new user we want to use to run the Stockfish Cluster:
+Next step is to add a new user -in this example *mpiuserer* - we want to use to run the Stockfish Cluster:
 ```console
 $ adduser mpiuser
 ```
