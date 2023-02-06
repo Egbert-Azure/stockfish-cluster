@@ -32,3 +32,5 @@ It's easier to run sudo command without password. Therfore, login as newuser and
 ```console
 $ sudo bash -c 'echo "$(logname) ALL=(ALL:ALL) NOPASSWD: ALL" | (EDITOR="tee -a" visudo)'
 ```
+Repeat this for all your nodes, name them such as CluserNode1-3, having this picture in mind.
+<img src=".images/clusterarchitecture.jpeg" alt="Architecture" />
