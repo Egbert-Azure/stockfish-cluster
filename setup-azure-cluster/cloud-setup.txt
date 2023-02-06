@@ -1,5 +1,5 @@
-# cloud-setup.txt
-#cloud configuration
+# cloud-setup.txt file
+# cloud configuration
 package_upgrade: true
 packages:
   - clustershell
