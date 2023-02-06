@@ -72,7 +72,7 @@ and paste the key from Windows in a new line
 Done, the basic cluster is setup, the master can talk to the worker nodes and vice versa.
 to exececute tasks
 
-<h2>Managing the Cluster</h2>
+<h2>II. Managing the Cluster</h2>
 There are multiple options available for managing a compute cluster, such as Ansible or Fabric. However, a quick and easy-to-use option is parallel-ssh, an asynchronous parallel SSH library designed for large-scale automation. 
 It differs from alternatives and higher-level frameworks such as Ansible in the following ways:
 
