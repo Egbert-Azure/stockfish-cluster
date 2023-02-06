@@ -23,23 +23,38 @@ This file will install the necessary packages (clustershell, openmpi-bin, and li
 Before you start ensure you have enough quota on Azure.
 
 <h2>Create a Resource Group</h2>
-A resource group is a way to group our cluster components and to keep them in the same network segment. Run the following command to create a resource group with your location:
+Create a resource group with the az group create command. An Azure resource group is a logical container into which Azure resources are deployed and managed. It is a way to group our cluster components and to keep them in the same network segment. Run the following command to create a resource group with your location (here westus):
 
 ```
-$ az group create --name mycluster --location westus
+$ az group create --name myResourceGroup --location westus
 ```
-Create a Proximity Placement Group
+In case you made a mistake you can delete the group:
+```
+$ az group delete --name myResourceGroup
+```
+<h2>Create a Proximity Placement Group</h2>
 A proximity placement group (ppg) is used to keep all VMs within the same low-latency network. Run the following command to create a ppg with your choice of VM size:
 
 ```
-$ az ppg create --name myclusterppg --resource-group myclusterstrg --intent-vm-sizes Standard_DS1_v2          
+$ az ppg create --name myclusterppg --resource-group myResourceGroup --intent-vm-sizes Standard_DS1_v2          
+```
+To delete the group:
+```
+$ az group delete --name myclusterppg
+```
+You can check if everything is ok with a simple az command:
+``` consol
+az ppg list -o table
+Location    Name          ProximityPlacementGroupType    ResourceGroup
+----------  ------------  -----------------------------  ---------------
+westus      myclusterppg  Standard                       MYRESOURCEGROUP
 ```
 
 <h2>Create Compute Nodes</h2>
 To create a group of four compute nodes in the ppg, run the following command:
 
 ```
-$ az vm create --name mycluster --resource-group myclusterstrg --image UbuntuLTS \
+$ az vm create --name mycluster --resource-group myResourceGroup --image UbuntuLTS \
              --ppg myclusterppg --generate-ssh-keys --size Standard_DS1_v2 \
              --accelerated-networking true --custom-data cloud-setup.txt \
              --count 4
@@ -47,5 +62,9 @@ $ az vm create --name mycluster --resource-group myclusterstrg --image UbuntuLTS
 This will create four VMs named mycluster0, mycluster1, mycluster2, and mycluster3. To see all o see all the resources created, run:
 ``` consol
 $ az resource list --resource-group myclusterstrg -o table
+```
+Now we check if everthing is up and running:
+``` console
+$ az resource list --resource-group myresourcegroup -o table
 ```
 
