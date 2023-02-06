@@ -67,4 +67,15 @@ Now we check if everthing is up and running:
 ``` console
 $ az resource list --resource-group myresourcegroup -o table
 ```
+The compute nodes that are created have public IP addresses and are located in a shared subnet on the same Virtual Network (VNet), with close physical proximity, due to the proximity placement group (ppg). To view the IP addresses, you can run the following command:
+```css
+$ az vm list-ip-addresses --resource-group myresourcegroup -o table
 
+VirtualMachine    PublicIPAddresses    PrivateIPAddresses
+----------------  -------------------  --------------------
+mycluster0        X.X.X.1               Y.Y.Y.5
+mycluster1        X.X.X.56              Y.Y.Y.4 
+```
+Replace X.X.X.1 and X.X.X.56 with the actual public IP addresses of your compute nodes and Y.Y.Y.5 and Y.Y.Y.4 with their respective private IP addresses
+
+The `az vm create` command created a user on each of the VMs with the same name as the local user who ran the command (e.g. mpiuser), but this can be overridden using `--admin-username`. Additionally, the local SSH key (~/.ssh/id_rsa.pub) was added to each VM's authorized_keys file. As a result, you should now be able to log into your head node via PowerShell with `ssh mpiuser@PublicIPAddress`.
