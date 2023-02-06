@@ -70,3 +70,37 @@ $ cat ~/.ssh/id_rsa.pub
  ```
 and paste the key from Windows in a new line
 Done, the basic cluster is setup, the master can talk to the worker nodes and vice versa.
+to exececute tasks
+
+<h2>Managing the Cluster</h2>
+There are multiple options available for managing a compute cluster, such as Ansible or Fabric. However, a quick and easy-to-use option is parallel-ssh, an asynchronous parallel SSH library designed for large-scale automation. 
+It differs from alternatives and higher-level frameworks such as Ansible in the following ways:
+
+- Scalability: It can scale to hundreds, thousands, tens of thousands of hosts or more.
+- Ease of use: Running commands over any number of hosts can be achieved with just a few lines of code.
+
+To install parallel-ssh, run the following command in your terminal:
+
+```console
+$ sudo apt install parallel-ssh
+```
+
+Next, create a file named .pssh_hosts using the nano text editor:
+
+```console
+$ nano .pssh_hosts
+```
+In the .pssh_hosts file, add the host names for your cluster nodes, such as:
+
+```
+ClusterNode1
+ClusterNode2
+ClusterNode3
+```
+With the .pssh_hosts file in place, you can now execute commands on multiple hosts at once using parallel-ssh. For example:
+
+```
+$ parallel-ssh -i -h .pssh_hosts sudo apt-get update
+$ parallel-ssh -i -h .pssh_hosts sudo apt-get upgrade -y
+```
+You can also run scripts using parallel-ssh.
