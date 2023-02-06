@@ -34,3 +34,39 @@ $ sudo bash -c 'echo "$(logname) ALL=(ALL:ALL) NOPASSWD: ALL" | (EDITOR="tee -a"
 ```
 Repeat this for all your nodes, name them such as CluserNode1-3, having this picture in mind.
 ![Architecture](../images/clusterarchitecture.jpeg)
+
+a) The ClusterMaster has now the basic setup. Repeat for CluserNode1-3. Now all nodes are ready and we need to ensure ClusterMaster can talk to each node.
+1. Create ssh key on ClusterMaster:
+```console
+$ ssh-keygen -t rsa
+```
+2. copy the key to each node
+From ClusterMaster to ClusterNode1-3
+```console
+$ ssh-copy-id remote-user@server-ip
+```
+b) ClusterNode1-3 need to talk to ClusterMaster
+1. Create ssh key on ClusterNode1-3
+```console
+$ ssh-keygen -t rsa
+```
+2. copy the key to each node
+From ClusterNode1-3 to ClusterMaster
+```console
+$ ssh-copy-id remote-user@server-ip
+```
+c) In the third step you want to enable the login from your windows machine via SSH and without password too.
+From Windows Powershell to Linux Machine
+
+1. create ssh key
+```console
+$ cat ~/.ssh/id_rsa.pub
+```
+
+2. to copy the key, login to ClusterMaster, ClusterNode1-3
+```console
+ $ cd .ssh
+ $ nano authorized_keys
+ ```
+and paste the key from Windows in a new line
+Done, the basic cluster is setup, the master can talk to the worker nodes and vice versa.
