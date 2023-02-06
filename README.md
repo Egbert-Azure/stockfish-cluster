@@ -28,8 +28,9 @@ And yes, there is a Stockfish Chess Enginge branch developed with MPI cluster im
 
 For details docs are linked
 # Setup Stockfish Cluster
-see documentation [here](setup-cluster/setupstockfishcluster.md)
+see documentation [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/setup-cluster/SetupStockfishCluster.md)
 
 # Setting up a Basic MPI Cluster in Azure
-see documentation [here](setup-azure-cluster/setupazurebasicmpicluster.md)
+see documentation [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/setup-cluster/SetupStockfishCluster.md)
+
 
