@@ -31,5 +31,5 @@ For details docs are linked
 see documentation [here](setup-cluster/setupstockfishcluster.md)
 
 # Setting up a Basic MPI Cluster in Azure
-ee documentation [here](setup-azure-cluster/setupazurebasicmpicluster.md)
+see documentation [here](setup-azure-cluster/setupazurebasicmpicluster.md)
 
