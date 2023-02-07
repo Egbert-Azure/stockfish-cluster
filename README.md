@@ -13,6 +13,7 @@ The journey started end of 2021. I wanted a remote server connected to ChessBase
  <li>MicroUSB Power Supply</li>
  <li>Network switch such as NETGEAR 8-Port Gigabit Ethernet Plus Switch</li>
  <li>Internet Connection</li>
+ <li>Azure account for Azure based Stockfish Cluster</li>
 <li>Cluster Operating system:</li>
     <dd>Azure VM: Ubuntu OS</dd>
     <dd>Raspberry Pi: Armbian or Ubuntu</dd>
