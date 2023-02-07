@@ -35,6 +35,5 @@ see documentation [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/
 # Setting up a Basic MPI Cluster in Azure
 Create a MPI test cluster with Azure CLI
 
-see documentation [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/setup-cluster/SetupStockfishCluster.md)
-
+see documentation [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/setup-azure-cluster/SetupAzureBasicMPICluster.md)
 
