@@ -7,9 +7,9 @@ For training purposes, the guide will use cheaper virtual machines (Standard D2a
 
 The cluster will use the standard Azure network private IP address instead of InfiniBand. All steps will be performed using the Azure CLI and it is assumed that you have already set it up with your Azure account and subscription.
 
-To run the az commands, create a text `cloud-setup.txt` file in your PowerShell environment and include the following contents:
+The next step is to create a file in your current shell, named `cloud-init.txt` in your PowerShell environment and include the following contents:
 ```
-#cloud configuration
+# cloud-config
 package_upgrade: true
 packages:
   - clustershell
