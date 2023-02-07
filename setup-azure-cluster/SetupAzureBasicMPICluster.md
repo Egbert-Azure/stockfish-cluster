@@ -78,4 +78,4 @@ mycluster1        X.X.X.56              Y.Y.Y.4
 ```
 Replace X.X.X.1 and X.X.X.56 with the actual public IP addresses of your compute nodes and Y.Y.Y.5 and Y.Y.Y.4 with their respective private IP addresses
 
-The `az vm create` command created a user on each of the VMs with the same name as the local user who ran the command (e.g. mpiuser), but this can be overridden using `--admin-username`. Additionally, the local SSH key (~/.ssh/id_rsa.pub) was added to each VM's authorized_keys file. As a result, you should now be able to log into your head node via PowerShell with `ssh mpiuser@PublicIPAddress`.
+The `az vm create` command created a user on each of the VMs with the same name as the local user who ran the command (e.g. mpiuser), but this can be overridden using `--admin-username` `yourusername` (mpiuser e.g.) in the command line. Additionally, the local SSH key (~/.ssh/id_rsa.pub) was added to each VM's authorized_keys file. As a result, you should now be able to log into your head node via PowerShell with `ssh mpiuser@PublicIPAddress`.
