@@ -130,3 +130,25 @@ Hello world from processor mycluster3, rank 3 out of 4 processors
 Hello world from processor mycluster1, rank 1 out of 4 processors
 Hello world from processor mycluster2, rank 2 out of 4 processors
 ```
+A first test with latency might be helpful.
+<h1>MPI Latency Test</h2> is a benchmarking tool used to measure the latency (or response time) of a Message Passing Interface (MPI) communication between two MPI processes. 
+
+``` console
+mpirun -np 2 --host cluster1,cluster2 ./osu-micro-benchmarks-6.1/install/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
+```
+
+The above example command uses the MPI implementation mpirun to launch two MPI processes on two separate hosts, cluster1 and cluster2. The benchmark is executed from the osu-micro-benchmarks-6.1 package and specifically the osu_latency test within the pt2pt MPI communication benchmark suite. The benchmark measures the time it takes for two MPI processes to send short messages to each other and can be used to evaluate the performance of MPI communication in a cluster computing environment.
+
+<b>Installation:</b>
+``` console
+$ wget https://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-6.1.tar.gz
+$ tar zxf osu-micro-benchmarks-6.1.tar.gz
+$ cd osu-micro-benchmarks-6.1/
+$ ./configure --prefix $PWD/install CC=mpicc CXX=mpicxx
+$ make && make install
+```
+And then run a first test with:
+ ``` console
+ mpirun -np 2 mycluster1,mycluster2,mycluster3 ./osu-micro-benchmarks-6.1/install/libexec/osu-micro-benc
+hmarks/mpi/pt2pt/osu_latency
+```
