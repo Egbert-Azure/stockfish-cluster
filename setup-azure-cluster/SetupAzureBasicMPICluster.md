@@ -55,8 +55,10 @@ To create a group of four compute nodes in the ppg, run the following command:
 
 ```
 $ az vm create --name mycluster --resource-group myResourceGroup --image UbuntuLTS \
-             --ppg myclusterppg --generate-ssh-keys --size Standard_DS1_v2 \
-             --accelerated-networking true --custom-data cloud-setup.txt \
+             --ppg myclusterppg --generate-ssh-keys \
+             --size Standard_DS1_v2 \
+             --accelerated-networking true \
+             --custom-data cloud-init.txt \
              --count 4
 ```
 This will create four VMs named mycluster0, mycluster1, mycluster2, and mycluster3. To see all o see all the resources created, run:
