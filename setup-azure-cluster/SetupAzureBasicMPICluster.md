@@ -152,7 +152,7 @@ And then run a first test with:
  mpirun -np 2 mycluster1,mycluster2,mycluster3 ./osu-micro-benchmarks-6.1/install/libexec/osu-micro-benc
 hmarks/mpi/pt2pt/osu_latency
 ```
-To optimize an MPI cluster we can remove public IP for all nodes but not the master.
+To optimize an MPI cluster we can remove public IP addresses for all nodes but not the master.
 ``` vbnet
 # Azure CLI Script
 
@@ -172,4 +172,9 @@ for i in {1..3}; do
 done
 ```
 
+Explanation:
+
+This shell script updates the IP configuration of 3 network interfaces (`ipconfigmycluster1`, `ipconfigmycluster2`, `ipconfigmycluster3`) and removes their respective public IP addresses.
+Then, it deletes 3 public IPs (`myclusterPublicIP1`, `myclusterPublicIP2`, `myclusterPublicIP3`) associated with these network interfaces.
+All these resources belong to a resource group named `myResourceGroup`.
 
