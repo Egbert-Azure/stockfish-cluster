@@ -40,3 +40,6 @@ see documentation [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/
 
 # Stockfish Cluster Installation
 WIP
+
+# ChessBase integration
+WIP
