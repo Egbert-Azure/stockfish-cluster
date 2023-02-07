@@ -8,12 +8,23 @@ For training purposes, the guide will use cheaper virtual machines (Standard D2a
 The cluster will use the standard Azure network private IP address instead of InfiniBand. All steps will be performed using the Azure CLI and it is assumed that you have already set it up with your Azure account and subscription.
 
 Before you start ensure you have enough quota on Azure and ensure you have Azure CLI installed and activated in Powershell (or your preferred terminal). To execute commands you can easily run Azure CLI in Powershell and connect from your machine. Keep in mind that some commands will only work if you open cloud shell (such as cloud-init).
-
+![Alt text](../images/Azure%20CLI%20local%20machine.png)
 To use custom data, you must Base64-encode the contents before passing the data to the API--unless you're using a CLI tool that does the conversion for you, such as the Azure CLI. The size can't exceed 64 KB.
 
 In the CLI, you can pass your custom data as a file, as the following example shows. The file will be converted to Base64.
 
-The next step is to create a file in your current shell, named `cloud-init.txt` in your PowerShell environment and include the following contents:
+The next step is to create a file in your current shell, named `cloud-init.txt`. Goal is to customize our VM nodes we want to create.
+Here are the steps:
+
+- Create a cloud-init configuration file: The cloud-init configuration file is a script that contains the customization that you want to apply to the virtual machine. The script should be written in YAML format.
+
+- Pass the cloud-init configuration file to the virtual machine: You can pass the cloud-init configuration file to the virtual machine during creation or after creation by using the Azure CLI, Azure portal, or Azure Resource Manager templates.
+
+- Start the virtual machine: Once the virtual machine has been created, start it, and cloud-init will apply the customizations specified in the configuration file.
+
+For more information on cloud-init and examples of cloud-init configuration files, see the official cloud-init documentation: https://cloud-init.io/
+
+To configure our MPI Cluster create the following `cloud-init.txt` in your Azure Cloud Shell including the following contents:
 ```
 # cloud-config
 package_upgrade: true
@@ -23,6 +34,7 @@ packages:
   - libopenmpi-dev
   - python3-pip
   - python3-mpi4py
+  - python3-numpy
 ```
 
 This file will install the necessary packages (clustershell, openmpi-bin, and libopenmpi-dev) to run MPI on your cluster. Not mandatory, but maybe useful, installing mpi4py to run some python test scripts.
@@ -97,5 +109,24 @@ $ nano authorized_keys`
 ```
 and paste the key in a new line, save the file.
 You should now be able to connext to all nodes from `mycluster0`.
+A first test with the famous `HelloWorld.c` (in MPI-Tests subfolder)
 
+[Hello World Example](../MPI-Tests/HelloWorldTest/helloworld.c)
 
+Copy to mycluster0 and compile with OpenMPI:
+``` console 
+mpicc helloworld.c -o helloworld
+```
+The `helloworld` program has to be on mycluster 1-3 too. We can easily copy with
+``` console
+clush -w mycluster[1-3] -c helloworld
+```
+You can now execute:
+``` console
+mpirun --host mycluster0,mycluster1,mycluster2,mycluster3 ./helloworld
+
+Hello world from processor mycluster0, rank 0 out of 4 processors
+Hello world from processor mycluster3, rank 3 out of 4 processors
+Hello world from processor mycluster1, rank 1 out of 4 processors
+Hello world from processor mycluster2, rank 2 out of 4 processors
+```
