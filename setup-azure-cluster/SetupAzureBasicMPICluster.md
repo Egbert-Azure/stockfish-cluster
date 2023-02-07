@@ -76,3 +76,20 @@ mycluster1        X.X.X.56              Y.Y.Y.4
 Replace X.X.X.1 and X.X.X.56 with the actual public IP addresses of your compute nodes and Y.Y.Y.5 and Y.Y.Y.4 with their respective private IP addresses
 
 The `az vm create` command created a user on each of the VMs with the same name as the local user who ran the command (e.g. mpiuser), but this can be overridden using `--admin-username` `yourusername` (mpiuser e.g.) in the command line. Additionally, the local SSH key (~/.ssh/id_rsa.pub) was added to each VM's authorized_keys file. As a result, you should now be able to log into your head node via PowerShell with `ssh mpiuser@PublicIPAddress`.
+
+To start working with our new cluster we need to ssh from mycluster0 to mycluster 1-4. I do not recommend for security reason to use your local machine public key. A better way is to create a key on `mycluster0` and copy the key to `mycluster1-3`.
+
+Create ssh key on `mycluster0`:
+``` console
+$ ssh-keygen -t rsa
+$ cat ~/.ssh/id_rsa.pub
+```
+copy the key, and then login to `mycluster1-3' 
+``` console 
+$ cd .ssh
+$ nano authorized_keys`
+```
+and paste the key in a new line, save the file.
+You should now be able to connext to all nodes from `mycluster0`.
+
+
