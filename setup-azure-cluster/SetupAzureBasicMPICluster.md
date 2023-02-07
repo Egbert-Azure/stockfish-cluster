@@ -7,6 +7,12 @@ For training purposes, the guide will use cheaper virtual machines (Standard D2a
 
 The cluster will use the standard Azure network private IP address instead of InfiniBand. All steps will be performed using the Azure CLI and it is assumed that you have already set it up with your Azure account and subscription.
 
+Before you start ensure you have enough quota on Azure and ensure you have Azure CLI installed and activated in Powershell (or your preferred terminal). To execute commands you can easily run Azure CLI in Powershell and connect from your machine. Keep in mind that some commands will only work if you open cloud shell (such as cloud-init).
+
+To use custom data, you must Base64-encode the contents before passing the data to the API--unless you're using a CLI tool that does the conversion for you, such as the Azure CLI. The size can't exceed 64 KB.
+
+In the CLI, you can pass your custom data as a file, as the following example shows. The file will be converted to Base64.
+
 The next step is to create a file in your current shell, named `cloud-init.txt` in your PowerShell environment and include the following contents:
 ```
 # cloud-config
@@ -20,7 +26,7 @@ packages:
 ```
 
 This file will install the necessary packages (clustershell, openmpi-bin, and libopenmpi-dev) to run MPI on your cluster. Not mandatory, but maybe useful, installing mpi4py to run some python test scripts.
-Before you start ensure you have enough quota on Azure.
+
 
 <h2>Create a Resource Group</h2>
 Create a resource group with the az group create command. An Azure resource group is a logical container into which Azure resources are deployed and managed. It is a way to group our cluster components and to keep them in the same network segment. Run the following command to create a resource group with your location (here westus):
