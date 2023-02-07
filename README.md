@@ -38,3 +38,5 @@ Create a MPI test cluster with Azure CLI
 
 see documentation [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/setup-azure-cluster/SetupAzureBasicMPICluster.md)
 
+# Stockfish Cluster Installation
+WIP
