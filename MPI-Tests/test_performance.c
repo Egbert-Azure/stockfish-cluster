@@ -1,5 +1,9 @@
 // Author: Egbert Schroeer
 // Purpose: Test the performance of an Azure cluster with 4 nodes
+// The code itself initializes the MPI environment, 
+// gets the rank and size of the processes, performs the performance test, 
+// and then finalizes the MPI environment.
+
 
 #include <mpi.h>
 #include <stdio.h>
