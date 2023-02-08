@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../MPI-Tests/HelloWorldTest"
+		},
+		{
+			"path": "../setup-cluster"
+		},
+		{
+			"path": "../images"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}
