@@ -36,7 +36,8 @@ see documentation [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/
 # Setting up a Basic MPI Cluster in Azure
 Create a MPI test cluster with Azure CLI
 
-see documentation [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/setup-azure-cluster/SetupAzureBasicMPICluster.md)
+see documentation [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/setup-azure-cluster/SetupAzureBasicMPICluster.md) which includes a first 
+MPI Latency Test too.
 
 <b>Cluster test routines</b>
 
@@ -45,6 +46,7 @@ see documentation [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/
 [MPI Parallel Pi Calculation](MPI-Tests/MPI%20Parallel%20Pi%20Calculation.md)
 
 [Simple performance test](MPI-Tests/test_performance.c)
+
 
 # Stockfish Cluster Installation
 WIP
