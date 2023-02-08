@@ -15,27 +15,13 @@ Create a new file with a `.sh` extension, for example `azure_cli_script.sh`, and
 Paste the following code into the file:
 ``` console
 #!/bin/bash
-#
-# This script will prompt the user to enter the values for rg_name, location, vm_name, image, and size, and then use those values to generate the ppg_name and create the specified resources
-#
-#
 
-echo "Enter the resource group name:"
-read rg_name
-
-echo "Enter the location (e.g. westus):"
-read location
-
-echo "Enter the virtual machine name:"
-read vm_name
-
-ppg_name="${vm_name}ppg"
-
-echo "Enter the virtual machine image (e.g. UbuntuLTS):"
-read image
-
-echo "Enter the virtual machine size (e.g. Standard_DS1_v2):"
-read size
+rg_name="myResourceGroup"
+location="westus"
+ppg_name="myclusterppg"
+vm_name="mycluster"
+image="UbuntuLTS"
+size="Standard_DS1_v2"
 
 echo "Enter the number of nodes:"
 read node_count
@@ -43,7 +29,6 @@ read node_count
 az group create --name $rg_name --location $location
 az ppg create --name $ppg_name --resource-group $rg_name --intent-vm-sizes $size
 az vm create --name $vm_name --resource-group $rg_name --image $image --ppg $ppg_name --generate-ssh-keys --size $size --accelerated-networking true --custom-data cloud-init.txt --count $node_count
-
 ```
 
 This script uses the Azure CLI to create a resource group named `myResourceGroup` in the `westus` location, a proximity placement group named `myclusterppg` in the `myResourceGroup` resource group, and VMs named `mycluster` in the `myResourceGroup` resource group using the `UbuntuLTS` image and the `Standard_DS1_v2` size. The script prompts the user to enter the number of nodes to create.
