@@ -1,7 +1,10 @@
 # Setting up a Basic MPI Cluster in Azure
 This guide outlines the simplest method for creating an MPI cluster in Azure. The steps provided here serve as a visual demonstration of the process and are not intended for use in a production High-Performance Computing (HPC) environment.
 
-Note: The cluster created will be able to run MPI across the general-purpose network in Azure.
+Note: The cluster created will be able to run MPI across the general-purpose network in Azure. To ensure you work on the right subscription with Azure CLI check with
+``` console 
+az account list
+```
 
 For training purposes, the guide will use cheaper virtual machines (Standard D2as v4 with 2 vcpus and 8 GiB memory or Standard DS1 v2 with 1 vcpu). However, for the final Stockfish chess engine cluster, it is recommended to use the Standard D8as v4 with 8 vcpus and 32 GiB memory or higher.
 
