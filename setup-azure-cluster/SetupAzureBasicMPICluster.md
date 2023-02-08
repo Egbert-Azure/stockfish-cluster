@@ -191,20 +191,28 @@ To optimize an MPI cluster we can remove public IP addresses for all nodes but n
 
 # Azure CLI Script removing public IP
 
-This script uses the Azure CLI to perform the following operations in a loop 3 times:
+This [script](azure_cli_remove_publicIP.sh) uses the Azure CLI to perform the following operations in a loop 3 times:
 
 1. Remove a public IP address from a network interface configuration.
 2. Delete a public IP.
 
 ``` bash
 #!/bin/bash
+
+rg_name="myResourceGroup"
+vm_name_prefix="mycluster"
+nic_name_prefix="myclusterVMNic"
+public_ip_prefix="myclusterPublicIP"
+
 for i in {1..3}; do
-    az network nic ip-config update --resource-group myResourceGroup \
-                                    --name ipconfigmycluster${i} \
-                                    --nic-name myclusterVMNic${i} \
+    nic_name="${nic_name_prefix}${i}"
+    public_ip="${public_ip_prefix}${i}"
+    az network nic ip-config update --resource-group $rg_name \
+                                    --name "ipconfig${vm_name_prefix}${i}" \
+                                    --nic-name $nic_name \
                                     --remove PublicIpAddress
-    az network public-ip delete --resource-group myResourceGroup \
-                                --name myclusterPublicIP${i}
+    az network public-ip delete --resource-group $rg_name \
+                                --name $public_ip
 done
 ```
 
