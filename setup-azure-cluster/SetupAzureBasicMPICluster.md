@@ -189,16 +189,15 @@ hmarks/mpi/pt2pt/osu_latency
 
 To optimize an MPI cluster we can remove public IP addresses for all nodes but not the master.
 
-``` vbnet
-# Azure CLI Script
+# Azure CLI Script removing public IP
 
 This script uses the Azure CLI to perform the following operations in a loop 3 times:
 
 1. Remove a public IP address from a network interface configuration.
 2. Delete a public IP.
-```
 
 ``` bash
+#!/bin/bash
 for i in {1..3}; do
     az network nic ip-config update --resource-group myResourceGroup \
                                     --name ipconfigmycluster${i} \
