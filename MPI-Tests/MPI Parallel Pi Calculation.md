@@ -32,3 +32,5 @@ Time used: 0.234567 seconds
 <b>Goal</b>
 
 To demonstrate how to use MPI to calculate the value of pi in parallel on multiple nodes.
+
+[pi_mpi.c](pi_mpi.c)
