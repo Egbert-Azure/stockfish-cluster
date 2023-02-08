@@ -12,7 +12,8 @@ In this guide, we will walk through the steps to automate Azure CLI commands usi
 
 Create a new file with a `.sh` extension, for example `azure_cli_script.sh`, and open it in a text editor.
 
-Paste the following code into the file:
+Paste the following [code](azure_cli_script.sh) into the file
+
 ``` console
 #!/bin/bash
 
