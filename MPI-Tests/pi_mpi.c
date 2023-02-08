@@ -3,69 +3,58 @@
   Author: Egbert Schroeer
   Goal: To demonstrate how to use MPI to calculate the value of pi in parallel on multiple nodes.
 */
-
 #include <stdio.h>
 #include <stdlib.h>
-#include <mpi.h>
 #include <time.h>
+#include <mpi.h>
 
 #define MAX_ITER 100000000
 
-int main(int argc, char** argv) {
-  int rank, size;
-  MPI_Init(NULL, NULL);
-  MPI_Comm_size(MPI_COMM_WORLD, &size);
-  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+int main(int argc, char *argv[]) {
+    int node_num_iter, in_circle_count = 0, total_in_circle_count = 0;
+    int rank, size;
+    double x, y, pi, start_time, end_time;
+    char node_name[MPI_MAX_PROCESSOR_NAME];
+    int node_name_len;
 
-  // Check if the program is being run with 4 nodes.
-  if (size != 4) {
-    printf("Error: This program must be run with 4 nodes.\n");
-    MPI_Abort(MPI_COMM_WORLD, 1);
-  }
+    MPI_Init(&argc, &argv);
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
+    MPI_Get_processor_name(node_name, &node_name_len);
 
-  int node_num_iter = MAX_ITER / size;
-  int in_circle_count = 0;
-  srand(time(NULL) + rank);
-
-  double start_time = MPI_Wtime();
-
-  int i;
-  // Monte Carlo simulation to estimate the value of pi.
-  for (i = 0; i < node_num_iter; i++) {
-    double x = (double) rand() / RAND_MAX;
-    double y = (double) rand() / RAND_MAX;
-    if (x * x + y * y <= 1) {
-      in_circle_count++;
+    if (size != 4) {
+        if (rank == 0) {
+            printf("This program must be run with 4 nodes.\n");
+        }
+        MPI_Abort(MPI_COMM_WORLD, 1);
     }
-  }
 
-  int total_in_circle_count = 0;
-  MPI_Reduce(&in_circle_count, &total_in_circle_count, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+    node_num_iter = MAX_ITER / size;
+    srand(time(NULL) + rank);
 
-  double pi;
-  if (rank == 0) {
-    // Combine the results from all nodes to calculate the final value of pi.
-    pi = 4.0 * total_in_circle_count / MAX_ITER;
-    printf("Value of pi: %.10f\n", pi);
-    printf("Number of nodes: %d\n", size);
-    printf("Node names: ");
-    int i;
-    for (i = 0; i < size; i++) {
-      char name[MPI_MAX_PROCESSOR_NAME];
-      int name_len;
-      MPI_Get_processor_name(name, &name_len);
-      printf("%s ", name);
+    start_time = MPI_Wtime();
+    for (int i = 0; i < node_num_iter; i++) {
+        x = (double) rand() / RAND_MAX;
+        y = (double) rand() / RAND_MAX;
+
+        if (x * x + y * y <= 1.0) {
+            in_circle_count++;
+        }
     }
-    printf("\n");
-  }
+    MPI_Reduce(&in_circle_count, &total_in_circle_count, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
 
-  double end_time = MPI_Wtime();
-  if (rank == 0) {
-    printf("Time used: %f seconds\n", end_time - start_time);
-  }
+    if (rank == 0) {
+        pi = 4.0 * total_in_circle_count / MAX_ITER;
+        end_time = MPI_Wtime();
+        printf("Value of pi: %.10f\n", pi);
+        printf("Number of nodes: %d\n", size);
+        for (int i = 0; i < size; i++) {
+            MPI_Get_processor_name(node_name, &node_name_len);
+            printf("Node name %d: %s\n", i, node_name);
+        }
+        printf("Time used: %f seconds\n", end_time - start_time);
+    }
 
-  MPI_Finalize();
-  return 0;
+    MPI_Finalize();
+    return 0;
 }
-
-
