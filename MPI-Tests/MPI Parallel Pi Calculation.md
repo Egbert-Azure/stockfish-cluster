@@ -1,4 +1,5 @@
 # MPI Parallel Pi Calculation
+
 <h2>Introduction</h2>
 This program uses MPI (Message Passing Interface) to calculate the value of pi in parallel on multiple nodes. It performs a Monte Carlo simulation to estimate the value of pi and reduces the results from all nodes to calculate the final value.
 
@@ -19,6 +20,7 @@ To run the program, compile it using an MPI compiler, such as mpicc, and run it 
 mpicc pi_mpi.c -o pi_mpi
 mpirun -np 4 pi_mpi
 ```
+
 <b>Output</b>
 
 The program outputs the following information:
@@ -29,6 +31,7 @@ Number of nodes: 4
 Node names: node1 node2 node3 node4
 Time used: 0.234567 seconds
 ```
+
 <b>Goal</b>
 
 To demonstrate how to use MPI to calculate the value of pi in parallel on multiple nodes.

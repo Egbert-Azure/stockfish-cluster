@@ -1,4 +1,5 @@
 # Stockfish Cluster
+
 <h2>How to create a remote chess engine</h2>
     <h3>with Stockfish Cluster version</h3>
 <img src="./1666199543667.jpeg" alt="Getting started" />
@@ -28,15 +29,18 @@ To load balance an engine cluster version I use OpenMPI. OpenMPI is an open-sour
 And yes, there is a Stockfish Chess Enginge branch developed with MPI cluster implementation of Stockfish, allowing Stockfish to run on clusters of compute nodes connected with a high-speed network.
 
 For details follow the links below.
+
 # Setting up SBC Cluster
+
 Getting ready for a SBC cluster
 
 see documentation [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/setup-cluster/SetupStockfishCluster.md)
 
 # Setting up a Basic MPI Cluster in Azure
+
 Create a MPI test cluster with Azure CLI
 
-see documentation [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/setup-azure-cluster/SetupAzureBasicMPICluster.md) which includes a first 
+see documentation [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/setup-azure-cluster/SetupAzureBasicMPICluster.md) which includes a first
 MPI Latency Test too.
 
 <b>Cluster test routines</b>
@@ -47,9 +51,10 @@ MPI Latency Test too.
 
 [Simple performance test](MPI-Tests/test_performance.c)
 
-
 # Stockfish Cluster Installation
+
 WIP
 
 # ChessBase integration
+
 WIP
