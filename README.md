@@ -55,6 +55,8 @@ MPI Latency Test too.
 
 WIP
 
+[Install Stockfish Engine](Install%20the%20Stockfish%20Cluster%20Engine.md)
+
 # ChessBase integration
 
 WIP
