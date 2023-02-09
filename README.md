@@ -53,10 +53,9 @@ MPI Latency Test too.
 
 # Stockfish Cluster Installation
 
-WIP
+> **_NOTE:_** The setup is the same regadless if you run a single board computer cluster or Azure VM MPI cluster
 
-[Install Stockfish Engine](Install%20the%20Stockfish%20Cluster%20Engine.md)
-
+[Install Stockfish Engine](setup-cluster/Install%20the%20Stockfish%20Cluster%20Engine.md)
 # ChessBase integration
 
 WIP
