@@ -34,8 +34,8 @@ The `MPI_Init` function initializes the MPI environment, and `MPI_Comm_rank` and
 To compile and run the program with OpenMPI and KMP_AFFINITY, you would use the following commands:
 
 ``` s
-mpicc -o mpi_example mpi_example.c
+mpicc -o openmpi_KMP_AFFINITY openmpi_KMP_AFFINITY.c
 export KMP_AFFINITY=compact
-mpirun -np 4 mpi_example
+mpirun -np 4 openmpi_KMP_AFFINITY
 ```
  `mpicc` is used to compile the program, and mpirun is used to run the program with 4 processes. The -np option is used to specify the number of processes. The export command is used to set the KMP_AFFINITY environment variable to compact, which means that the threads will be preferentially bound to a single socket before being bound to other sockets.
