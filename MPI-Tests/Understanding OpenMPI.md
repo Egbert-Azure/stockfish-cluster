@@ -19,7 +19,7 @@ int main( int argc, char**argv )
     return 0;
 }
 ```
-The code includes the header files stdio.h and sched.h, which are standard C library header files. The `main()` function takes two arguments: `argc`, which is the number of arguments passed to the program, and `argv`, which is an array of strings representing the arguments passed to the program.
+The code includes the header files `stdio.h` and `sched.h`, which are standard C library header files. The `main()` function takes two arguments: `argc`, which is the number of arguments passed to the program, and `argv`, which is an array of strings representing the arguments passed to the program.
 
 The `#pragma omp` parallel directive is part of OpenMP, which is a set of directives and libraries for parallel programming in C, C++, and Fortran. The directive tells the compiler to generate code to create a team of threads to execute the code in the block concurrently.
 
