@@ -4,7 +4,7 @@
     <h3>with Stockfish Cluster version</h3>
 <img src="./coverpic.jpeg" alt="Getting started" />
 
-> **_NOTE:_** Contributing
+> **_NOTE:_** ###Contributing:
 This project welcomes contributions and suggestions.
 
 
