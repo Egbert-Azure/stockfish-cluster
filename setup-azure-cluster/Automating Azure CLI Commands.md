@@ -14,9 +14,9 @@ Create a new file with a `.sh` extension, for example `azure_cli_script.sh`, and
 
 Paste the following [code](azure_cli_script.sh) into the file
 
-``` console
-#!/bin/bash
 
+``` s
+#!/bin/bash
 rg_name="myResourceGroup"
 location="westus"
 ppg_name="myclusterppg"
@@ -24,15 +24,16 @@ vm_name="mycluster"
 image="UbuntuLTS"
 size="Standard_DS1_v2"
 
-echo "Enter the number of nodes:"
-read node_count
+read -p "Enter the number of nodes: " node_count
 
 az group create --name $rg_name --location $location
-az ppg create --name $ppg_name --resource-group $rg_name --intent-vm-sizes $size
-az vm create --name $vm_name --resource-group $rg_name --image $image --ppg $ppg_name --generate-ssh-keys --size $size --accelerated-networking true --custom-data cloud-init.txt --count $node_count
+az ppg create --name $ppg_name --resource-group $rg_name --instance-count $node_count --instance-size $size
+for i in $(seq 1 $node_count); do
+  az vm create --name "${vm_name}-${i}" --resource-group $rg_name --image $image --ppg $ppg_name --generate-ssh-keys --size $size --accelerated-networking true --custom-data cloud-init.txt
+done
 ```
 
-This script uses the Azure CLI to create a resource group named `myResourceGroup` in the `westus` location, a proximity placement group named `myclusterppg` in the `myResourceGroup` resource group, and VMs named `mycluster` in the `myResourceGroup` resource group using the `UbuntuLTS` image and the `Standard_DS1_v2` size. The script prompts the user to enter the number of nodes to create.
+This script uses the Azure CLI to create a resource group named `myResourceGroup` in the `westus` location, a proximity placement group named `myclusterppg` in the `myResourceGroup` resource group, and VMs named `mycluster` in the `myResourceGroup` resource group using the `UbuntuLTS` image and the `Standard_DS1_v2` size. The script first reads the number of nodes from the user and stores it in the node_count variable. Then, it checks if the number of nodes is less than 2, and if so, sets node_count to 2.
 
 ## Making the Script Executable
 
@@ -45,7 +46,7 @@ chmod +x azure_cli_script.sh
 ## Running the Script
 
 To run the script, execute the following command in the terminal:
-``` console
+``` s
 ./azure_cli_script.sh
 ```
 
