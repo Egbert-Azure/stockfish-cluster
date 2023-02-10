@@ -1,6 +1,6 @@
 // demonstrate how to run the compact binding strategy
 // author: E. Schroeer
-// openmpi_KMP_AFFINITY.c
+
 #include <mpi.h>
 #include <stdio.h>
 #include <stdlib.h>

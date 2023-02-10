@@ -39,3 +39,19 @@ export KMP_AFFINITY=compact
 mpirun -np 4 openmpi_KMP_AFFINITY
 ```
  `mpicc` is used to compile the program, and mpirun is used to run the program with 4 processes. The -np option is used to specify the number of processes. The export command is used to set the KMP_AFFINITY environment variable to compact, which means that the threads will be preferentially bound to a single socket before being bound to other sockets.
+The output makes it clear. Instead of
+``` console
+mpirun -np 4 openmpi_KMP
+Hello from rank 2 of 4
+Hello from rank 3 of 4
+Hello from rank 0 of 4
+Hello from rank 1 of 4
+```
+after `export KMP_AFFINITY=compact` we get
+``` console
+~$ mpirun -np 4 openmpi_KMP
+Hello from rank 0 of 4
+Hello from rank 1 of 4
+Hello from rank 2 of 4
+Hello from rank 3 of 4
+```
