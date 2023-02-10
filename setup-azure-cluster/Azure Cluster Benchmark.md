@@ -19,7 +19,7 @@ $ make && make install
 Copy the compiled app to all nodes in your cluster:
 ``` 
 $ cd
-$ clush -w mycluster[0-4] -c osu-micro-benchmarks-6.1
+$ clush -w mycluster[1-3] -c osu-micro-benchmarks-6.1
 ```
 To run the latency test, use the mpirun command, specifying the number of processes with the -np option, and the host nodes with the --host option:
 ```
