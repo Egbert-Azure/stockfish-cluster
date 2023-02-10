@@ -51,11 +51,7 @@ MPI Latency Test too.
 
 <b>Cluster test routines</b>
 
-[HelloWorld](MPI-Tests/HelloWorldTest/HelloWorld.md)
-
-[MPI Parallel Pi Calculation](MPI-Tests/MPI%20Parallel%20Pi%20Calculation.md)
-
-[Simple performance test](MPI-Tests/test_performance.c)
+[folder with sample code to test MPI cluster](MPI-Tests)
 
 # Stockfish Cluster Installation
 
