@@ -36,7 +36,7 @@ And yes, there is a Stockfish Chess Enginge branch developed with MPI cluster im
 
 For details follow the links below.
 
-# Setting up SBC Cluster
+# Setup Stockfish Cluster on SBC
 
 Getting ready for a SBC cluster
 
