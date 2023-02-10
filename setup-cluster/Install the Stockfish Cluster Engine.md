@@ -14,8 +14,9 @@ We only need to clone the Stockfish Cluster branch:
 $ git clone --branch cluster --single-branch https://github.com/official-stockfish/Stockfish.git cluster
 ```
 Next step is to compile the cluster version with the make file.
+To optimze the implementation, check out the processor of all nodes to use the right ARCH paramenter. As an example, you can determine the processor running on your Standard DS1 v2 Azure virtual machine by using the lscpu command. Result might be Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz. In that case, your nodes are running on Intel Xeon Platinum 8171M (Skylake) processors. You can use the following ARCH value:
 ``` consol
 $ cd cluster
-$ make build ARCH=x86-64-modern-Haswell COMPILER=mpicxx
+$ make build ARCH=x86-64-modern-Skylake COMPILER=mpicxx
 ```
-Note: The ARCH flag can be set to a variety of different architectures, depending on your setup. The x86-64-modern-Haswell architecture is just an example and may not be appropriate for your particular setup. The COMPILER=mpicxx syntax specifies that you want to use the MPI compiler
+>Note: The ARCH flag can be set to a variety of different architectures, depending on your setup. The COMPILER=mpicxx syntax specifies that you want to use the MPI compiler
