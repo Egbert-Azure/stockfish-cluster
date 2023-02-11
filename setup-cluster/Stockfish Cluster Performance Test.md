@@ -2,7 +2,7 @@
 
 > Note: needs to be tested in all setups (Azure cluster, SBC cluster)
 
-This script allows you to specify the hash size and number of threads by adding two new lists: hash_sizes and threads. The script then loops over each combination of values of -np, -map-by, hash size, and number of threads, and runs the benchmark with each combination. The results of each run of the benchmark are written to the file `results.txt`, and displayed on the screen using the print function.
+This python script allows you to specify the hash size and number of threads by adding two new lists: hash_sizes and threads. The script then loops over each combination of values of -np, -map-by, hash size, and number of threads, and runs the benchmark with each combination. The results of each run of the benchmark are written to the file `results.txt`, and displayed on the screen using the print function.
 
 ``` py
 import subprocess
