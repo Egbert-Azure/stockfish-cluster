@@ -59,3 +59,8 @@ def main():
 # Call the main function if the script is run as the main program
 if __name__ == '__main__':
     main()
+```
+
+With `nohup python3 scriptname.py &` you run the script in the background, even if the connection is lost, and the output of the script will be written to the file `nohup.out`.
+
+
