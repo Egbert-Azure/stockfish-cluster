@@ -1,56 +1,35 @@
 #simple stockfish cluster benchmark
+# ver 2
 
 import subprocess
-import time
+import csv
 
-# Function to run the benchmark with a specified number of processes, mapping, hash size, and number of threads
+# Constants for the benchmark
+NODES = ['mycluster1', 'mycluster2', 'mycluster3']
+REPEAT = 3
+DEPTH = 13
+HASH = [16, 32, 64, 128, 256, 512]
+THREADS = range(3, 13)
 
-def run_benchmark(np, map_by, hash_size, threads):
-    # Record the start time
-    start = time.time()
+# File to save the results
+filename = "results.csv"
+header = ["Hash", "Threads", "Score"]
 
-    # Construct the command to run the benchmark using mpirun
-    cmd = f'mpirun -hosts mycluster0,mycluster1,mycluster2,mycluster3 -map-by {map_by} /usr/games/stockfish15 bench hash={hash_size} threads={threads} -np {np}'
+# Write header to the csv file
+with open(filename, "w", newline="") as file:
+    writer = csv.writer(file)
+    writer.writerow(header)
 
-    # Run the command and capture its output
-    result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+# Loop over the hash and threads values
+for hash_size in HASH:
+    for threads in THREADS:
+        for repeat in range(REPEAT):
+            command = f"mpirun -np 4 --host mycluster0,{','.join(NODES)} /usr/games/stockfish15 bench -hash {hash_size} -threads {threads} -depth {DEPTH}"
+            result = subprocess.run(command.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            score = result.stdout.decode().split("\n")[-2].split()[-1]
+            print(f"Hash: {hash_size} Threads: {threads} Score: {score}")
 
-    # Record the end time
-    end = time.time()
-
-    # Return the elapsed time
-    return end - start
-
-# Main function to run the benchmarks and display the results
-def main():
-    # List of values of -np to test
-    nps = [1, 2, 4, 8, 16]
-
-    # List of values of -map-by to test
-    map_bys = ['node', 'core', 'socket']
-
-    # List of values for the hash size to test
-    hash_sizes = [16, 32, 64, 128, 256]
-
-    # List of values for the number of threads to test
-    threads = [1, 2, 4, 8, 16]
-
-    # Open a file to write the results to
-    with open('results.txt', 'w') as f:
-        # Loop over the values of -np, -map-by, hash size, and number of threads
-        for np in nps:
-            for map_by in map_bys:
-                for hash_size in hash_sizes:
-                    for t in threads:
-                        # Write the header for this run of the benchmark
-                        f.write(f'Running benchmark with -np {np} -map-by {map_by} hash={hash_size} threads={t}\n')
-                        print(f'Running benchmark with -np {np} -map-by {map_by} hash={hash_size} threads={t}')
-
-                        # Run the benchmark and write the result
-                        result = run_benchmark(np, map_by, hash_size, t)
-                        f.write(f'Elapsed time: {result} seconds\n')
-                        print(f'Elapsed time: {result} seconds')
-
-# Call the main function if the script is run as the main program
-if __name__ == '__main__':
-    main()
+            # Write the results to the csv file
+            with open(filename, "a", newline="") as file:
+                writer = csv.writer(file)
+                writer.writerow([hash_size, threads, score])
