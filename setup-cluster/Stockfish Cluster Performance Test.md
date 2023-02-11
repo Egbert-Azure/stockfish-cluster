@@ -9,6 +9,7 @@ import subprocess
 import time
 
 # Function to run the benchmark with a specified number of processes, mapping, hash size, and number of threads
+
 def run_benchmark(np, map_by, hash_size, threads):
     # Record the start time
     start = time.time()
