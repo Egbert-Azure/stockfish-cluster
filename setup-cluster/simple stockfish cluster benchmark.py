@@ -3,9 +3,6 @@
 import subprocess
 import time
 
-import subprocess
-import time
-
 # Function to run the benchmark with a specified number of processes and mapping
 def run_benchmark(np, map_by):
     # Record the start time
