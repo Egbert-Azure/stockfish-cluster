@@ -3,8 +3,6 @@
 # write python script to run benchmark with Stockfish on a 4 node cluster where clustermaster is the master, clusternode1 to 3 are the workers
 # each node has 4 cores
 # the stockfish binary is in /home/usr/stockfish15
-# it's the stockfish cluster version
-# benchmark should be run 3 times with HASH in 16 32 64 128 256 512 and THREADS in {3..12}
 # mpirun is -map-by node
 # write the results to a file in /home/usr/results.csv on csv format
 # the results should be in the form of a table with the following columns:
