@@ -1,7 +1,7 @@
 #simple stockfish cluster benchmark
 # ver 2020-10-20
 # write python script to run benchmark with Stockfish on a 4 node cluster where clustermaster is the master, clusternode1 to 3 are the workers
-# each node has 1 cpu with 4 cores
+# each node has 4 cores
 # the stockfish binary is in /home/usr/stockfish15
 # it's the stockfish cluster version
 # benchmark should be run 3 times with HASH in 16 32 64 128 256 512 and THREADS in {3..12}
@@ -19,6 +19,7 @@ import subprocess
 import time
 import csv
 
+NODES = ['mycluster1', 'mycluster2', 'mycluster3']
 
 # Function to run the benchmark with a specified number of processes, mapping, hash size, and number of threads
 def run_benchmark(np, map_by, hash_size, threads):
@@ -26,7 +27,7 @@ def run_benchmark(np, map_by, hash_size, threads):
     start = time.time()
 
     # Construct the command to run the benchmark using mpirun
-    cmd = f'mpirun -hosts clustermaster,clusternode1,clusternode2,clusternode3 -map-by {map_by} /home/usr/stockfish15 bench hash={hash_size} threads={threads} -np {np}'
+    cmd = f'mpirun -hosts mycluster0,clusternode1,clusternode2,clusternode3 -map-by {map_by} /home/usr/stockfish15 bench hash={hash_size} threads={threads} -np {np}'
 
     # Run the command and capture its output
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
