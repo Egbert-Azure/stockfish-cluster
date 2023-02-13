@@ -17,16 +17,20 @@ import subprocess
 import time
 import csv
 
-NODES = ['mycluster1', 'mycluster2', 'mycluster3']
+# Constants for the benchmark
+NODES = ['mycluster1', 'mycluster2', 'mycluster3']  # List of nodes to use for the benchmark
+REPEAT = 3                                           # Number of times to repeat the benchmark for each setting
+DEPTH = 13                                           # Depth for the Stockfish engine to search
+HASH = [16, 32, 64, 128, 256, 512]                  # Hash sizes to test
 
-# Function to run the benchmark with a specified number of processes, mapping, hash size, and number of threads
-def run_benchmark(np, map_by, hash_size, threads):
+# Function to run the benchmark with a specified hash size and number of threads
+def run_benchmark(hash_size, threads):
     # Record the start time
     start = time.time()
 
     # Construct the command to run the benchmark using mpirun
-    cmd = f'mpirun -hosts mycluster0,clusternode1,clusternode2,clusternode3 -map-by {map_by} /home/usr/stockfish15 bench hash={hash_size} threads={threads} -np {np}'
-
+    cmd = f"mpirun -np 4 --host mycluster0,{','.join(NODES)} /usr/games/stockfish15 bench -hash {hash_size} -threads {threads} -depth {DEPTH}"
+    
     # Run the command and capture its output
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
@@ -36,9 +40,6 @@ def run_benchmark(np, map_by, hash_size, threads):
     return elapsed
 
 def main():
-    # Number of processes to run the benchmark with
-    nps = [1, 2, 4, 8, 16]
-
     # List of values for the hash size to test
     hash_sizes = [16, 32, 64, 128, 256, 512]
 
@@ -50,17 +51,16 @@ def main():
         writer = csv.writer(f)
 
         # Write the header row for the file
-        writer.writerow(['NP', 'Hash size', 'Threads', 'Time'])
+        writer.writerow(['Hash size', 'Threads', 'Time'])
 
-        # Loop over the values of -np, hash size, and number of threads
-        for np in nps:
-            for hash_size in hash_sizes:
-                for t in threads:
-                    # Run the benchmark
-                    result = run_benchmark(np, 'node', hash_size, t)
+        # Loop over the values of hash size and number of threads
+        for hash_size in hash_sizes:
+            for t in threads:
+                # Run the benchmark
+                result = run_benchmark(hash_size, t)
 
-                    # Write the results to the file
-                    writer.writerow([np, hash_size, t, result])
+                # Write the results to the file
+                writer.writerow([hash_size, t, result])
 
 # Call the main function if the script is run as the main program
 if __name__ == '__main__':

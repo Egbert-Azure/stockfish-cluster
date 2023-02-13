@@ -8,6 +8,7 @@ This python script allows you to specify the hash size and number of threads by 
 
 ``` py
 import subprocess
+import time
 import csv
 
 # Constants for the benchmark
@@ -15,36 +16,49 @@ NODES = ['mycluster1', 'mycluster2', 'mycluster3']  # List of nodes to use for t
 REPEAT = 3                                           # Number of times to repeat the benchmark for each setting
 DEPTH = 13                                           # Depth for the Stockfish engine to search
 HASH = [16, 32, 64, 128, 256, 512]                  # Hash sizes to test
-THREADS = range(3, 13)                              # Number of threads to use for the benchmark
 
-# File to save the results
-filename = "results.csv"                             # File to store the results of the benchmark
-header = ["Hash", "Threads", "Score"]                # Header for the csv file
+# Function to run the benchmark with a specified hash size and number of threads
+def run_benchmark(hash_size, threads):
+    # Record the start time
+    start = time.time()
 
-# Write header to the csv file
-with open(filename, "w", newline="") as file:
-    writer = csv.writer(file)
-    writer.writerow(header)
+    # Construct the command to run the benchmark using mpirun
+    cmd = f"mpirun -np 4 --host mycluster0,{','.join(NODES)} /usr/games/stockfish15 bench -hash {hash_size} -threads {threads} -depth {DEPTH}"
+    
+    # Run the command and capture its output
+    result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
-# Loop over the hash and threads values
-for hash_size in HASH:
-    for threads in THREADS:
-        for repeat in range(REPEAT):
-            # Generate the command to run the Stockfish benchmark
-            command = f"mpirun -np 4 --host mycluster0,{','.join(NODES)} /usr/games/stockfish15 bench -hash {hash_size} -threads {threads} -depth {DEPTH}"
+    # Calculate the elapsed time
+    elapsed = time.time() - start
 
-            # Run the command and get the output
-            result = subprocess.run(command.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    return elapsed
 
-            # Extract the score from the output
-            score = result.stdout.decode().split("\n")[-2].split()[-1]
-            print(f"Hash: {hash_size} Threads: {threads} Score: {score}")
+def main():
+    # List of values for the hash size to test
+    hash_sizes = [16, 32, 64, 128, 256, 512]
 
-            # Write the results to the csv file
-            with open(filename, "a", newline="") as file:
-                writer = csv.writer(file)
-                writer.writerow([hash_size, threads, score])
+    # List of values for the number of threads to test
+    threads = range(3, 13)
 
+    # Open a file to write the results to
+    with open('/home/usr/results.csv', 'w') as f:
+        writer = csv.writer(f)
+
+        # Write the header row for the file
+        writer.writerow(['Hash size', 'Threads', 'Time'])
+
+        # Loop over the values of hash size and number of threads
+        for hash_size in hash_sizes:
+            for t in threads:
+                # Run the benchmark
+                result = run_benchmark(hash_size, t)
+
+                # Write the results to the file
+                writer.writerow([hash_size, t, result])
+
+# Call the main function if the script is run as the main program
+if __name__ == '__main__':
+    main()
 ```
 
 With `nohup python3 scriptname.py &` you run the script in the background, even if the connection is lost, and the output of the script will be written to the file `nohup.out`.
