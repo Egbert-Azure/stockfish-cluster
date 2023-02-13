@@ -1,6 +1,6 @@
-#simple stockfish cluster benchmark
+# simple stockfish cluster benchmark
 # ver 2020-10-20
-# write python script to run benchmark with Stockfish on a 4 node cluster where clustermaster is the master, clusternode1 to 3 are the workers
+# python script to run benchmark with Stockfish on a 4 node cluster where clustermaster is the master, clusternode1 to 3 are the workers
 # each node has 4 cores
 # the stockfish binary is in /home/usr/stockfish15
 # mpirun is -map-by node
