@@ -55,7 +55,9 @@ The documentation can be found [here](https://github.com/Egbert-Azure/stockfish-
 
 # Stockfish Cluster Installation
 
-> **_NOTE:_** The setup is the same regadless if you run a single board computer cluster or Azure VM MPI cluster
+> **_NOTE:_**  Regardless of whether you are setting up a Stockfish cluster on a Single Board Computer or an Azure VM MPI cluster, the setup process is the same.
+
+The first step in setting up a Stockfish cluster is to install the Stockfish engine on each node in the cluster.
 
 [Install Stockfish Engine](setup-cluster/Install%20the%20Stockfish%20Cluster%20Engine.md)
 
