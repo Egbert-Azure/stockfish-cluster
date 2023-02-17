@@ -42,10 +42,9 @@ Getting ready for a SBC cluster
 
 see documentation [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/setup-cluster/SetupStockfishCluster.md)
 
-# Setting up a Basic MPI Cluster in Azure
-
-Create a MPI test cluster with Azure CLI
-
+# Setting up a Basic MPI Cluster in Azure with Azure CLI
+In this part of the guide, we will walk you through the process of setting up a basic MPI (Message Passing Interface) cluster in Azure using Azure CLI (Command Line Interface). 
+This cluster will consist of several virtual machines (VMs) that will communicate with each other using the MPI standard. We will also provide instructions on how to conduct a basic MPI latency test to verify the cluster's functionality.
 see documentation [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/setup-azure-cluster/SetupAzureBasicMPICluster.md) which includes a first
 MPI Latency Test too.
 
