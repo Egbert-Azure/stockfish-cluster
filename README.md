@@ -1,16 +1,16 @@
 # Stockfish Cluster
 
-<h2>How to create a remote chess engine</h2>
-    <h3>with Stockfish Cluster version</h3>
+## How to create a remote chess engine with Stockfish Cluster version
+
 <img src="./coverpic.jpeg" alt="Getting started" />
 
 > **_NOTE:_** Contributing:
 This project welcomes contributions and suggestions.
 
-
  In this project, we will discuss how to create an MPI Cluster on several platforms including a cluster build with SBC (LePotato or Raspberry Pi or similar) and run a cluster Version of Stockfish to improve chess engine usage with ChessBase and other UCI software.
- 
-<h2>Problem statement and goal</h2>
+
+## Problem statement and goal ##
+
 The journey started end of 2021. I wanted a remote server connected to ChessBase Software when analyzing chess games, tactical analysis etc. You might think why not just run stockfish or other engines on your laptop. Well true, but the heavy CPU usage of such engine on a laptop -let’s assume 8 cores- drain the battery fast if not connected to power. Also, a remote chess engine running on a cluster has much better performance.
 
 <h2>Prerequesites</h2>
@@ -38,17 +38,18 @@ For details follow the links below.
 
 # Setup Stockfish Cluster on SBC
 
-Getting ready for a SBC cluster
+In this part of the guide, we will walk you through the process of setting up a Stockfish cluster on a Single Board Computer (SBC). A Stockfish cluster allows you to run multiple instances of the Stockfish chess engine in parallel to speed up analysis and improve performance.
 
-see documentation [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/setup-cluster/SetupStockfishCluster.md)
+Follow the link [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/setup-cluster/SetupStockfishCluster.md)
 
 # Setting up a Basic MPI Cluster in Azure with Azure CLI
-In this part of the guide, we will walk you through the process of setting up a basic MPI (Message Passing Interface) cluster in Azure using Azure CLI (Command Line Interface). 
-This cluster will consist of several virtual machines (VMs) that will communicate with each other using the MPI standard. We will also provide instructions on how to conduct a basic MPI latency test to verify the cluster's functionality.
-see documentation [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/setup-azure-cluster/SetupAzureBasicMPICluster.md) which includes a first
-MPI Latency Test too.
 
-<b>Cluster test routines</b>
+In this part of the guide, we will walk you through the process of setting up a basic MPI (Message Passing Interface) cluster in Azure using Azure CLI (Command Line Interface).
+This cluster will consist of several virtual machines (VMs) that will communicate with each other using the MPI standard. We will also provide instructions on how to conduct a basic MPI latency test to verify the cluster's functionality.
+
+The documentation can be found [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/setup-azure-cluster/SetupAzureBasicMPICluster.md) which includes a first MPI Latency Test too.
+
+<b>Additional Cluster test routines:</b>
 
 [folder with sample code to test MPI cluster](MPI-Tests)
 
@@ -57,6 +58,7 @@ MPI Latency Test too.
 > **_NOTE:_** The setup is the same regadless if you run a single board computer cluster or Azure VM MPI cluster
 
 [Install Stockfish Engine](setup-cluster/Install%20the%20Stockfish%20Cluster%20Engine.md)
+
 # ChessBase integration
 
 WIP
