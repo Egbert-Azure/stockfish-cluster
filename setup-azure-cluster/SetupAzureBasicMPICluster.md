@@ -191,6 +191,18 @@ To optimize an MPI cluster we can remove public IP addresses for all nodes but n
 
 # Azure CLI Script to create the cluster
 
+This script is a bash script that utilizes the Azure CLI (Command-Line Interface) to create a resource group, a proximity placement group (PPG), and virtual machines (VMs) with a specified number of nodes.
+
+Breakdown of the script's main functionalities:
+
+The script defines several variables such as the resource group name, location, proximity placement group name, virtual machine name, image, and size.
+It prompts the user to enter the number of nodes to create.
+The script creates a resource group using the "az group create" command and specifies the name and location of the group.
+It then creates a proximity placement group using the "az ppg create" command and specifies the name, resource group, instance count, and size of the group.
+Next, the script runs a for loop that creates a specified number of virtual machines using the "az vm create" command. Each virtual machine is named using a combination of the virtual machine name and the iteration number.
+The "az vm create" command also specifies the resource group, image, proximity placement group, size, and custom data (cloud-init.txt).
+The script utilizes the "read" command to allow the user to input the number of nodes to create before executing the rest of the script.
+
 ``` bash
 #!/bin/bash
 # Azure CLI commands 
