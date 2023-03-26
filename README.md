@@ -64,3 +64,8 @@ The first step in setting up a Stockfish cluster is to install the Stockfish eng
 # ChessBase integration
 
 WIP
+
+
+## Drop a Star ⭐ ##
+
+If you like this project then drop a Github star by pressing the Star button ⭐
