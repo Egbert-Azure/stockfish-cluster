@@ -47,7 +47,7 @@ Follow the link [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/ma
 In this part of the guide, we will walk you through the process of setting up a basic MPI (Message Passing Interface) cluster in Azure using Azure CLI (Command Line Interface).
 This cluster will consist of several virtual machines (VMs) that will communicate with each other using the MPI standard. We will also provide instructions on how to conduct a basic MPI latency test to verify the cluster's functionality.
 
-### The documentation can be found [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/setup-azure-cluster/SetupAzureBasicMPICluster.md) which includes a first MPI Latency Test too.
+### The documentation can be found [here](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/setup-azure-cluster/SetupAzureBasicMPICluster.md) which includes a first MPI Latency Test too
 
 <b>Additional Cluster test routines:</b>
 
@@ -58,13 +58,24 @@ This cluster will consist of several virtual machines (VMs) that will communicat
 > **_NOTE:_**  Regardless of whether you are setting up a Stockfish cluster on a Single Board Computer or an Azure VM MPI cluster, the setup process is the same.
 
 The first step in setting up a Stockfish cluster is to install the Stockfish engine on each node in the cluster.
-
+Follow the link to
 [Install Stockfish Engine](setup-cluster/Install%20the%20Stockfish%20Cluster%20Engine.md)
 
 # ChessBase integration
 
-WIP
+`ChessBase` is a popular personal chess database that has become the standard for top players around the world, from the World Champion to the amateur next door. One of the benefits of ChessBase is its compatibility with UCI compliant chess engines, which allows users to analyze games and positions using powerful chess engines.
 
+However, ChessBase only accepts executable (`exe`) files as engines, which can be a limitation for users who want to connect to non-exe engines, such as those running on Linux servers. In this guide, we will explore how to connect to ChessBase and other UCI software using a "middleman" to bridge the gap and enable communication between the two.
+
+If you haven't read the first part of this guide, "Building a Remote Cluster with Stockfish Chess Engine," we recommend starting there to set up a remote chess engine cluster. With that in place, we can move on to connecting ChessBase to the remote cluster using the middleman tool.
+
+* Option 1 with InBetween:
+
+Follow the linke here
+
+* Option 2 with SSH-Engine:
+
+* Option 3 
 
 ## Drop a Star ⭐ ##
 
