@@ -81,6 +81,41 @@ Follow the link here
 
 * Option 3 
 
+is with [drabwridge](https://github.com/Egbert-Azure/drawbridge),
+an open source UCI engine bridging software developed by [Khadim Fall](https://www.linkedin.com/in/khad-im/). 
+It will imitate a normal uci engine while bridging its traffic to a remote host. This will allow to use remote engine clusters to be used in traditional software.
+Which is the most flexible bridging software with some advanced features such as middleware definition.
+
+You might want and need to add this middleware to trick out `ChessBase` overruling the engine setup which cause the a connection failure
+
+``` console
+function message_in(line)
+  return line;
+end;
+
+function message_out(line)
+   --[[Example: Filter out Hash overwrites--]]
+  filterPrefix = "setoption name Hash"
+  if string.sub(line, 1, string.len(filterPrefix))==filterPrefix then
+    return "";
+  end
+
+  --[[Example: Filter out Thread overwrites--]]
+  filterPrefix = "setoption name Threads"
+  if string.sub(line, 1, string.len(filterPrefix))==filterPrefix then
+    return "";
+  end
+
+  return line;
+end;
+
+```
+
+![image](https://user-images.githubusercontent.com/55332675/228965391-d2d522d2-0a79-4f13-837c-ebcc1bbed079.png)
+![image](https://user-images.githubusercontent.com/55332675/228965510-806be23e-ec50-4b28-a902-729506158d73.png)
+
+
+
 ## Drop a Star ⭐ ##
 
 If you like this project then drop a Github star by pressing the Star button ⭐
