@@ -76,6 +76,9 @@ Follow the linke here
 
 * Option 2 with SSH-Engine:
 
+Follow the link here
+[ssh-engine.md](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/sshengine.md)
+
 * Option 3 
 
 ## Drop a Star ⭐ ##
