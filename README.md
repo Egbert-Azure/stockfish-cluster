@@ -69,12 +69,12 @@ However, ChessBase only accepts executable (`exe`) files as engines, which can b
 
 If you haven't read the first part of this guide, "Building a Remote Cluster with Stockfish Chess Engine," we recommend starting there to set up a remote chess engine cluster. With that in place, we can move on to connecting ChessBase to the remote cluster using the middleman tool.
 
-* Option 1 with InBetween:
+* Option 1 with `InBetween`:
 
 Follow the linke here
 [inbetween.md](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/inbetween.md)
 
-* Option 2 with SSH-Engine:
+* Option 2 with `SSH-Engine`:
 
 Follow the link here
 [ssh-engine.md](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/sshengine.md)
