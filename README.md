@@ -72,7 +72,7 @@ If you haven't read the first part of this guide, "Building a Remote Cluster wit
 * Option 1 with InBetween:
 
 Follow the linke here
-[inbetween.md](https://github.com/Egbert-Azure/stockfish-cluster/files/11115983/inbetween.md)
+[inbetween.md](https://github.com/Egbert-Azure/stockfish-cluster/inbetween.md)
 
 * Option 2 with SSH-Engine:
 
