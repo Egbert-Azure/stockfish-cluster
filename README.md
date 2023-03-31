@@ -82,8 +82,10 @@ Follow the link here
 * Option 3 with `DrawBridge`:
 
 is with [drabwridge](https://github.com/Egbert-Azure/drawbridge),
-an open source UCI engine bridging software developed by [Khadim Fall](https://www.linkedin.com/in/khad-im/). 
-It will imitate a normal uci engine while bridging its traffic to a remote host. This will allow to use remote engine clusters to be used in traditional software.
+an open source UCI engine bridging software developed by [Khadim Fall](https://www.linkedin.com/in/khad-im/). A very smooth and easy installation, self explaining.
+However, it's good to have some understanding how `ChessBase~ behave. Therfore, logfile helps as always.
+
+`DrawBridge` imitate a normal uci engine while bridging its traffic to a remote host. This will allow to use remote engine clusters to be used in traditional software.
 Which is the most flexible bridging software with some advanced features such as middleware definition.
 
 You might want and need to add this middleware to trick out `ChessBase` overruling the engine setup which cause the a connection failure
