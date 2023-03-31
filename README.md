@@ -79,7 +79,7 @@ Follow the linke here
 Follow the link here
 [ssh-engine.md](https://github.com/Egbert-Azure/stockfish-cluster/blob/main/sshengine.md)
 
-* Option 3 
+* Option 3 with `DrawBridge`:
 
 is with [drabwridge](https://github.com/Egbert-Azure/drawbridge),
 an open source UCI engine bridging software developed by [Khadim Fall](https://www.linkedin.com/in/khad-im/). 
