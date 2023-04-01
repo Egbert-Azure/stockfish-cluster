@@ -88,7 +88,7 @@ However, it's good to have some understanding how `ChessBase~ behave. Therfore, 
 `DrawBridge` imitate a normal uci engine while bridging its traffic to a remote host. This will allow to use remote engine clusters to be used in traditional software.
 Which is the most flexible bridging software with some advanced features such as middleware definition.
 
-You might want and need to add this middleware to trick out `ChessBase` overruling the engine setup which cause the a connection failure
+You might want and need to add this middleware to trick out `ChessBase` overruling the engine setup which cause a connection failure
 
 ``` console
 function message_in(line)
