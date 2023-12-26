@@ -1,6 +1,17 @@
+ 
+ # HPC Container?
+
+ From this
+
+ ![Alt text](image.png)
+
+ to this?
+
+ ![Alt text](image-1.png)
+
  First thoughts to build a home lab with LXD on SBC to learn and test a containerized version of a Stockfish cluster.
 
-Context and first toughts:
+### Context and first toughts:
 
  **Containers** play a significant role in the context of **High Performance Computing (HPC)** applications.
 
