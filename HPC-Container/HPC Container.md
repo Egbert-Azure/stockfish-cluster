@@ -107,6 +107,8 @@ Parallel processing can lead to faster evaluations of multiple positions simulta
 
 ## LXD with MAAS
 
+Prerequ: 16GB of RAM
+
 MAAS, which stands for "Metal as a Service", is a service that allows you to treat physical servers like virtual machines in the cloud. It turns your bare metal into an elastic, cloud-like resource that you can easily provision, monitor, and manage. 
 
 With MAAS, you no longer need to manage individual servers manually. Instead, you can enlist bare metal servers and deploy standard or customized operating systems to them remotely. This allows you to rapidly deploy, destroy, and reconfigure your physical servers as needed.
