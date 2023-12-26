@@ -112,12 +112,11 @@ Source:
 3. Containerization for High Performance Computing Systems: Survey and .... https://ieeexplore.ieee.org/document/9985426/
 4. Container orchestration on HPC systems through Kubernetes. https://journalofcloudcomputing.springeropen.com/articles/10.1186/s13677-021-00231-z
 
-(1) About clustering - Canonical LXD documentation. https://documentation.ubuntu.com/lxd/en/latest/explanation/clustering/.
-(2) Run system containers with LXD | Ubuntu. https://ubuntu.com/lxd.
-(3) Please explain advantages of LXD cluster over regular LXD. https://discuss.linuxcontainers.org/t/please-explain-advantages-of-lxd-cluster-over-regular-lxd/3554.
-(4) Bare metal Kubernetes: The 6 things you wish you knew before 2022 - MAAS. https://maas.io/blog/6-things-you-wish-you-knew-about-bare-metal-kubernetes-before-2022.
-(5) Nova-LXD delivers bare-metal performance on OpenStack, while ... - Ubuntu. https://ubuntu.com/blog/nova-lxd-delivers-bare-metal-performance-on-openstack-while-ironic-delivers-nsa-as-a-service.
-(6) Bare Metal vs. RTOS vs. OS: What Works Best for IoT? - Nabto. https://nabto.com/bare-metal-vs-rtos-vs-os/.
-(7) Inexpensive highly available LXD cluster: Introduction. https://stgraber.org/2020/12/15/inexpensive-highly-available-lxd-cluster-introduction/.
-(8) Kubernetes vs LXD | TrustRadius. https://www.trustradius.com/compare-products/kubernetes-vs-linux-containers-lxd.
-(9) undefined. https://unsplash.com/@tadekl.
+5. About clustering - Canonical LXD documentation. https://documentation.ubuntu.com/lxd/en/latest/explanation/clustering/.
+6. Run system containers with LXD | Ubuntu. https://ubuntu.com/lxd.
+7. Please explain advantages of LXD cluster over regular LXD. https://discuss.linuxcontainers.org/t/please-explain-advantages-of-lxd-cluster-over-regular-lxd/3554.
+8. Bare metal Kubernetes: The 6 things you wish you knew before 2022 - MAAS. https://maas.io/blog/6-things-you-wish-you-knew-about-bare-metal-kubernetes-before-2022.
+9. Nova-LXD delivers bare-metal performance on OpenStack, while ... - Ubuntu. https://ubuntu.com/blog/nova-lxd-delivers-bare-metal-performance-on-openstack-while-ironic-delivers-nsa-as-a-service
+10. Bare Metal vs. RTOS vs. OS: What Works Best for IoT? - Nabto. https://nabto.com/bare-metal-vs-rtos-vs-os/
+11. Inexpensive highly available LXD cluster: Introduction. https://stgraber.org/2020/12/15/inexpensive-highly-available-lxd-cluster-introduction/
+12. Kubernetes vs LXD | TrustRadius. https://www.trustradius.com/compare-products/kubernetes-vs-linux-containers-lxd
