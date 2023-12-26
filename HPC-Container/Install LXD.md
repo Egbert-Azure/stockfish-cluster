@@ -61,3 +61,5 @@ tmpfs           966M  4.0K  966M   1% /tmp
 tmpfs           194M  4.0K  194M   1% /run/user/1000
 clush> quit
 ```
+
+### Initialize LXD on the master node

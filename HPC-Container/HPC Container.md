@@ -9,11 +9,15 @@
 
  ![Alt text](image-1.png)
 
+![Alt text](image-3.png)
+
  First thoughts to build a home lab with LXD on SBC to learn and test a containerized version of a Stockfish cluster.
 
 ### Context and first toughts:
 
  **Containers** play a significant role in the context of **High Performance Computing (HPC)** applications.
+
+![Alt text](image-2.png)
 
 1. **Performance Overheads and Portability**:
    - Containers, particularly **OS-level virtualization**, have gained popularity as an alternative to hypervisor-based virtualization. They offer several advantages in HPC environments.
