@@ -105,6 +105,21 @@ Parallel processing can lead to faster evaluations of multiple positions simulta
 
 **Configuration and Tuning:** Proper configuration of Stockfish and MPI settings within containers, along with tuning for the specific hardware and workload, is essential for achieving the desired performance benefits.
 
+## LXD with MAAS
+
+MAAS, which stands for "Metal as a Service", is a service that allows you to treat physical servers like virtual machines in the cloud. It turns your bare metal into an elastic, cloud-like resource that you can easily provision, monitor, and manage. 
+
+With MAAS, you no longer need to manage individual servers manually. Instead, you can enlist bare metal servers and deploy standard or customized operating systems to them remotely. This allows you to rapidly deploy, destroy, and reconfigure your physical servers as needed.
+
+Some key features of MAAS include:
+- Automated remote operating system deployment to physical machines
+- Ability to manage large fleets of physical servers as a flexible resource pool
+- Monitoring and management of physical infrastructure from a central interface
+- Rapid provisioning and tear down of bare metal server configurations
+
+MAAS also provides super-fast self-service provisioning of Windows, Ubuntu, CentOS, and ESXi. It implements all the standard features of a public cloud — like instance metadata and cloud-init¹. Your customers get complete control of the deployed machine¹. Canonical, the creator of cloud-init, ensures that MAAS provides a first-class cloud experience for physical servers based on x86, ARM64, POWER, and Z architectures.
+
+
 Source:
 
 1. Containers in HPC: a survey | The Journal of Supercomputing - Springer. https://link.springer.com/article/10.1007/s11227-022-04848-y
@@ -120,3 +135,7 @@ Source:
 10. Bare Metal vs. RTOS vs. OS: What Works Best for IoT? - Nabto. https://nabto.com/bare-metal-vs-rtos-vs-os/
 11. Inexpensive highly available LXD cluster: Introduction. https://stgraber.org/2020/12/15/inexpensive-highly-available-lxd-cluster-introduction/
 12. Kubernetes vs LXD | TrustRadius. https://www.trustradius.com/compare-products/kubernetes-vs-linux-containers-lxd
+13. MAAS | MAAS documentation. https://maas.io/docs.
+14. MAAS | Metal as a Service. https://maas.io/.
+15. Metal as a Service (MaaS): DIY server-management at scale. https://engineering.linkedin.com/blog/2023/metal-as-a-service--maas---diy-server-management-at-scale.
+16. what is maas exactly? - Ask Ubuntu. https://askubuntu.com/questions/486701/what-is-maas-exactly
