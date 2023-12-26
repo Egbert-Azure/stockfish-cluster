@@ -80,3 +80,32 @@ Would you like to configure LXD to use an existing bridge or host interface? (ye
 Would you like stale cached images to be updated automatically? (yes/no) [default=yes]:
 Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]:
 ```
+
+Which server are available?
+
+``` bash 
+lxc remote list
+```
+
+Output is
+
+``` bash
+To start your first container, try: lxc launch ubuntu:22.04
+Or for a virtual machine: lxc launch ubuntu:22.04 --vm
+
++----------------------+---------------------------------------------------+---------------+-------------+--------+--------+--------+
+|         NAME         |                        URL                        |   PROTOCOL    |  AUTH TYPE  | PUBLIC | STATIC | GLOBAL |
++----------------------+---------------------------------------------------+---------------+-------------+--------+--------+--------+
+| images               | https://images.linuxcontainers.org                | simplestreams | none        | YES    | NO     | NO     |
++----------------------+---------------------------------------------------+---------------+-------------+--------+--------+--------+
+| local (current)      | unix://                                           | lxd           | file access | NO     | YES    | NO     |
++----------------------+---------------------------------------------------+---------------+-------------+--------+--------+--------+
+| ubuntu               | https://cloud-images.ubuntu.com/releases          | simplestreams | none        | YES    | YES    | NO     |
++----------------------+---------------------------------------------------+---------------+-------------+--------+--------+--------+
+| ubuntu-daily         | https://cloud-images.ubuntu.com/daily             | simplestreams | none        | YES    | YES    | NO     |
++----------------------+---------------------------------------------------+---------------+-------------+--------+--------+--------+
+| ubuntu-minimal       | https://cloud-images.ubuntu.com/minimal/releases/ | simplestreams | none        | YES    | YES    | NO     |
++----------------------+---------------------------------------------------+---------------+-------------+--------+--------+--------+
+| ubuntu-minimal-daily | https://cloud-images.ubuntu.com/minimal/daily/    | simplestreams | none        | YES    | YES    | NO     |
++----------------------+---------------------------------------------------+---------------+-------------+--------+--------+--------+
+```
