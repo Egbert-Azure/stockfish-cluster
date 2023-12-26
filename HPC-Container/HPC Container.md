@@ -59,14 +59,17 @@ Stockfish Cluster:
 Stockfish is a powerful open-source chess engine known for its strength and ability to analyze positions deeply.
 
 Creating a Stockfish cluster involves distributing chess engine computations across multiple nodes to improve overall performance.
-MPI (Message Passing Interface):
+
+### MPI (Message Passing Interface):
 
 **MPI** is a standard for parallel programming in distributed memory systems. It allows processes to communicate and coordinate, enabling parallel processing.
-Containers with LXD:
+
+### Containers with LXD:
 
 **LXD** provides lightweight system containers and virtual machines that can run full Linux systems.
 Containers offer isolation and ease of deployment, making them suitable for parallelizing applications like Stockfish.
-Enhancing Parallel Processing:
+
+**Enhancing Parallel Processing:**
 
 **Deploying Stockfish within LXD** containers with MPI can potentially enhance parallel processing.
 
