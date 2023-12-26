@@ -63,3 +63,20 @@ clush> quit
 ```
 
 ### Initialize LXD on the master node
+``` bash
+ClusterMaster:~$ sudo lxd init
+Would you like to use LXD clustering? (yes/no) [default=no]: yes
+What IP address or DNS name should be used to reach this server? [default=10.0.0.175]:
+Are you joining an existing cluster? (yes/no) [default=no]: n
+What member name should be used to identify this server in the cluster? [default=ClusterMaster]:
+Do you want to configure a new local storage pool? (yes/no) [default=yes]:
+Name of the storage backend to use (btrfs, dir, lvm) [default=btrfs]:
+Create a new BTRFS pool? (yes/no) [default=yes]:
+Would you like to use an existing empty block device (e.g. a disk or partition)? (yes/no) [default=no]:
+Size in GiB of the new loop device (1GiB minimum) [default=11GiB]:
+Do you want to configure a new remote storage pool? (yes/no) [default=no]:
+Would you like to connect to a MAAS server? (yes/no) [default=no]:
+Would you like to configure LXD to use an existing bridge or host interface? (yes/no) [default=no]:
+Would you like stale cached images to be updated automatically? (yes/no) [default=yes]:
+Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]:
+```
