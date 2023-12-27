@@ -109,3 +109,44 @@ Or for a virtual machine: lxc launch ubuntu:22.04 --vm
 | ubuntu-minimal-daily | https://cloud-images.ubuntu.com/minimal/daily/    | simplestreams | none        | YES    | YES    | NO     |
 +----------------------+---------------------------------------------------+---------------+-------------+--------+--------+--------+
 ```
+adding a node with
+
+``` bash
+lxc cluster add clusternode1
+Member clusternode1 join token:
+here your token
+```
+
+``` bash
+ClusterNode1:~$ sudo lxd init
+Would you like to use LXD clustering? (yes/no) [default=no]: yes
+What IP address or DNS name should be used to reach this server? [default=10.0.0.176]:
+Are you joining an existing cluster? (yes/no) [default=no]: yes
+Do you have a join token? (yes/no/[token]) [default=no]: yes
+Please provide join token:
+copy paste your token here
+
+```
+
+repeat for all nodes and ensure to have the same lxd version on the nodes. If not update with something like:
+
+``` bash
+sudo snap refresh lxd --channel=5.19/stable
+```
+
+``` bash
+lxc cluster list
++---------------+-------------------------+------------------+--------------+----------------+-------------+--------+-------------------+
+|     NAME      |           URL           |      ROLES       | ARCHITECTURE | FAILURE DOMAIN | DESCRIPTION | STATE  |      MESSAGE      |
++---------------+-------------------------+------------------+--------------+----------------+-------------+--------+-------------------+
+| ClusterMaster | https://10.0.0.xxx:8443 | database-leader  | aarch64      | default        |             | ONLINE | Fully operational |
+|               |                         | database         |              |                |             |        |                   |
++---------------+-------------------------+------------------+--------------+----------------+-------------+--------+-------------------+
+| clusternode1  | https://10.0.0.xxx:8443 | database         | aarch64      | default        |             | ONLINE | Fully operational |
++---------------+-------------------------+------------------+--------------+----------------+-------------+--------+-------------------+
+| clusternode2  | https://10.0.0.xxx:8443  | database-standby | aarch64      | default        |             | ONLINE | Fully operational |
++---------------+-------------------------+------------------+--------------+----------------+-------------+--------+-------------------+
+| clusternode3  | https://10.0.0.xxx:8443   | database         | aarch64      | default        |             | ONLINE | Fully operational |
++---------------+-------------------------+------------------+--------------+----------------+-------------+--------+-------------------+
+```
+`
