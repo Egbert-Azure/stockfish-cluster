@@ -126,3 +126,4 @@ My first thoughts to containerize a Stockfish cluster:
 
 If you like this project then drop a Github star by pressing the Star button ⭐
 
+<a href="https://www.buymeacoffee.com/chesslife" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
