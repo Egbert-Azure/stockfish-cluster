@@ -126,4 +126,3 @@ My first thoughts to containerize a Stockfish cluster:
 
 If you like this project then drop a Github star by pressing the Star button ⭐
 
-<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="chesslife" data-description="Support me on Buy me a coffee!" data-message="If you like the project, buy me a coffe" data-color="#5F7FFF" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
