@@ -149,4 +149,89 @@ lxc cluster list
 | clusternode3  | https://10.0.0.xxx:8443   | database         | aarch64      | default        |             | ONLINE | Fully operational |
 +---------------+-------------------------+------------------+--------------+----------------+-------------+--------+-------------------+
 ```
-`
+
+create a first container
+
+``` bash
+lxc launch images:ubuntu/focal
+Creating the instance
+Instance name is: better-lamprey
+
+The instance you are starting doesn't have any network attached to it.
+  To create a new network, use: lxc network create
+  To attach a network to an instance, use: lxc network attach
+```
+
+``` bash
+lxc network list
+```
+Creating the network on one node, you can add the other nodes. Here's how you can do it:
+
+```bash
+lxc network create lxdcluster
+```
+
+This will create the `lxdcluster` network across all nodes in the cluster as bridge.
+``` bash
+lxc network list
++------------+----------+---------+----------------+---------------------------+-------------+---------+---------+
+|    NAME    |   TYPE   | MANAGED |      IPV4      |           IPV6            | DESCRIPTION | USED BY |  STATE  |
++------------+----------+---------+----------------+---------------------------+-------------+---------+---------+
+| eth0       | physical | NO      |                |                           |             | 0       |         |
++------------+----------+---------+----------------+---------------------------+-------------+---------+---------+
+| lxdcluster | bridge   | YES     | 10.145.23.1/24 | fd42:16df:e3c1:f2e6::1/64 |             | 0       | CREATED |
++------------+----------+---------+----------------+---------------------------+-------------+---------+---------+
+```
+You can add the other nodes clusternode1-3 to the lxdcluster network by making the network pending on each of these nodes.
+
+``` bash
+lxc network create lxdbr0 --target clusternode1
+```
+
+and do the same for the rest of the nodes.
+Creating a first container
+
+``` bash
+lxc launch images:ubuntu/focal
+Creating the instance
+Instance name is: proud-boar
+
+The instance you are starting doesn't have any network attached to it.
+  To create a new network, use: lxc network create
+  To attach a network to an instance, use: lxc network attach
+
+lxc network attach lxdcluster proud-boar eth0
+lxc list
++------------+---------+---------------------+-----------------------------------------------+-----------+-----------+---------------+
+|    NAME    |  STATE  |        IPV4         |                     IPV6                      |   TYPE    | SNAPSHOTS |   LOCATION    |
++------------+---------+---------------------+-----------------------------------------------+-----------+-----------+---------------+
+| proud-boar | RUNNING | 10.145.23.81 (eth0) | fd42:16df:e3c1:f2e6:216:3eff:feaf:7b81 (eth0) | CONTAINER | 0         | ClusterMaster |
++------------+---------+---------------------+-----------------------------------------------+-----------+-----------+---------------
+
+lxc exec proud-boar -- /bin/bash
+root@proud-boar:~#
+```
+``` bash
+lxc network show lxdbr0
+config:
+  ipv4.address: 10.126.4.1/24
+  ipv4.nat: "true"
+  ipv6.address: fd42:4262:e27a:59d6::1/64
+  ipv6.nat: "true"
+description: ""
+name: lxdbr0
+type: bridge
+used_by:
+- /1.0/instances/co1
+- /1.0/instances/co2
+- /1.0/instances/co3
+- /1.0/instances/co4
+- /1.0/profiles/default
+managed: true
+status: Created
+locations:
+- ClusterMaster
+- clusternode1
+- clusternode2
+- clusternode3
+```
